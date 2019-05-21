@@ -80,14 +80,13 @@ img {
 
 .navbar {
   position: absolute;
-  top: 0;
-  width: 150%;
+  width: 100%;
   background: #2e2e2e;
 }
 
 .navbar ul {
   list-style-type: none;
-  padding: 10px;
+  padding: 15px;
   margin: 0;
 }
 

@@ -17,8 +17,9 @@
   <title>{{ .Title }} {{ if ne .Title .Site.Title }} &middot; {{ .Site.Title }}{{ end }}</title>
   <link rel="icon" href="{{ "/favicon.ico" | relURL }}" type="image/x-icon">
   <link rel="canonical" href="{{ .Permalink }}">
-  {{ if .RSSLink }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />
+  {{ with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
+  <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ site.Title }}">
   {{ end }}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
@@ -28,16 +29,19 @@
 </head>
 
 <body>
+    <a href="{{ "/" | relURL }}">
+      <img src="{{ "/images/logo.png" | relURL }}" width="100%" />
+    </a>
+  </div>
   <div class="navbar">
     <ul>
       <li><a href="{{ "/" | relURL }}" class="logo-title">ReU's Blog</a></li>
+	  <li><a href="{{ "/posts" | relURL }}">POSTS</a></li>
       <li><a href="{{ "/categories" | relURL }}">CATEGORIES</a></li>
       <li><a href="{{ "/tags" | relURL }}">TAGS</a></li>
     </ul>
   </div>
   <div class="container">
     <div class="title">
-      <a href="{{ "/" | relURL }}">
-        <img src="{{ "/images/logo.png" | relURL }}" width="1200px" height="400px" />
-      </a>
+      HELLO
     </div>
